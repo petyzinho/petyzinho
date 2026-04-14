@@ -28,12 +28,12 @@ const patientSteps = [
 export default function ComoFuncionaPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-isa-blue-900 to-isa-blue-700 text-white pt-32 pb-20">
+      <section className="bg-gradient-to-br from-isa-dark to-isa-pink-700 text-white pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-4">
             Como funciona a ISA Saúde?
           </h1>
-          <p className="text-isa-blue-100 text-lg max-w-2xl mx-auto">
+          <p className="text-isa-pink-100 text-lg max-w-2xl mx-auto">
             Uma plataforma simples que conecta profissionais de saúde a pacientes. Veja como funciona para cada perfil.
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function ComoFuncionaPage() {
             {profSteps.map((step, i) => (
               <motion.div key={step.title} variants={fadeUpVariant} className="flex gap-5">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 bg-isa-blue-500 rounded-full text-white flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-isa-pink-500 rounded-full text-white flex items-center justify-center flex-shrink-0">
                     {step.icon}
                   </div>
                   {i < profSteps.length - 1 && (

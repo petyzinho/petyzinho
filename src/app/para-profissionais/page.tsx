@@ -27,7 +27,7 @@ import {
 
 const benefits = [
   {
-    icon: <Clock className="w-6 h-6 text-isa-blue-500" />,
+    icon: <Clock className="w-6 h-6 text-isa-pink-500" />,
     title: "Horários flexíveis",
     description:
       "Você escolhe quando e onde trabalhar. Aceite chamados que se encaixam na sua agenda.",
@@ -45,13 +45,13 @@ const benefits = [
       "Receba notificações de chamados disponíveis na sua região, sem deslocamentos longos.",
   },
   {
-    icon: <Shield className="w-6 h-6 text-isa-blue-600" />,
+    icon: <Shield className="w-6 h-6 text-isa-pink-600" />,
     title: "Segurança jurídica",
     description:
       "Trabalhe com respaldo: documentação clara, contratos digitais e suporte da plataforma.",
   },
   {
-    icon: <UserCheck className="w-6 h-6 text-isa-blue-500" />,
+    icon: <UserCheck className="w-6 h-6 text-isa-pink-500" />,
     title: "Validação profissional",
     description:
       "Seu perfil validado aumenta sua credibilidade e dá segurança aos pacientes.",
@@ -69,14 +69,14 @@ const steps = [
     icon: <UserPlus className="w-6 h-6 text-white" />,
     title: "Crie sua conta",
     description: "Baixe o app e faça seu cadastro com seus dados profissionais.",
-    color: "bg-isa-blue-500",
+    color: "bg-isa-pink-500",
   },
   {
     icon: <FileText className="w-6 h-6 text-white" />,
     title: "Envie os documentos",
     description:
       "Envie COREN/CRM, documentos pessoais e comprovante de qualificação.",
-    color: "bg-isa-blue-600",
+    color: "bg-isa-pink-600",
   },
   {
     icon: <ShieldCheck className="w-6 h-6 text-white" />,
@@ -94,7 +94,7 @@ const steps = [
     icon: <Banknote className="w-6 h-6 text-white" />,
     title: "Receba seu pagamento",
     description: "Pagamento garantido após cada atendimento concluído.",
-    color: "bg-isa-blue-700",
+    color: "bg-isa-pink-700",
   },
 ];
 
@@ -125,7 +125,7 @@ export default function ParaProfissionaisPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-isa-blue-900 via-isa-blue-800 to-isa-blue-700 text-white pt-32 pb-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-isa-dark via-isa-pink-700 to-isa-pink-700 text-white pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 right-20 w-96 h-96 rounded-full bg-white blur-3xl" />
         </div>
@@ -139,7 +139,7 @@ export default function ParaProfissionaisPage() {
               <br />
               Ganhe mais. Cuide melhor.
             </h1>
-            <p className="text-lg text-isa-blue-100 mb-8 max-w-2xl">
+            <p className="text-lg text-isa-pink-100 mb-8 max-w-2xl">
               Junte-se a mais de 1.200 profissionais que usam a ISA para
               encontrar atendimentos domiciliares com flexibilidade, segurança e
               boa remuneração.
@@ -150,7 +150,7 @@ export default function ParaProfissionaisPage() {
                 variant="secondary"
                 size="lg"
                 rightIcon={<ArrowRight className="w-5 h-5" />}
-                className="bg-white text-isa-blue-700 hover:bg-isa-gray-100"
+                className="bg-white text-isa-pink-700 hover:bg-isa-gray-100"
               >
                 Quero me cadastrar
               </Button>

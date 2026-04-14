@@ -30,7 +30,7 @@ export function ChatBotMessages({ messages, isTyping, onChipSelect }: Props) {
         >
           <div className={cn("max-w-[85%]", msg.role === "bot" && "flex gap-2")}>
             {msg.role === "bot" && (
-              <div className="w-7 h-7 rounded-full bg-isa-blue-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="w-7 h-7 rounded-full bg-isa-pink-500 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Heart className="w-3.5 h-3.5 text-white fill-current" />
               </div>
             )}
@@ -39,7 +39,7 @@ export function ChatBotMessages({ messages, isTyping, onChipSelect }: Props) {
                 className={cn(
                   "px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed",
                   msg.role === "user"
-                    ? "bg-isa-blue-500 text-white rounded-tr-sm"
+                    ? "bg-isa-pink-500 text-white rounded-tr-sm"
                     : "bg-isa-gray-100 text-isa-gray-800 rounded-tl-sm"
                 )}
                 dangerouslySetInnerHTML={{ __html: msg.content }}
@@ -57,7 +57,7 @@ export function ChatBotMessages({ messages, isTyping, onChipSelect }: Props) {
 
       {isTyping && (
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-full bg-isa-blue-500 flex items-center justify-center">
+          <div className="w-7 h-7 rounded-full bg-isa-pink-500 flex items-center justify-center">
             <Heart className="w-3.5 h-3.5 text-white fill-current" />
           </div>
           <div className="bg-isa-gray-100 px-4 py-2.5 rounded-2xl rounded-tl-sm">

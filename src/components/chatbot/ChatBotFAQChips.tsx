@@ -12,7 +12,7 @@ export function ChatBotFAQChips({ chips, onSelect }: Props) {
         <button
           key={faq.id}
           onClick={() => onSelect(faq)}
-          className="text-xs px-3 py-1.5 bg-isa-blue-50 text-isa-blue-700 border border-isa-blue-200 rounded-pill hover:bg-isa-blue-100 transition-colors text-left"
+          className="text-xs px-3 py-1.5 bg-isa-pink-50 text-isa-pink-700 border border-isa-pink-200 rounded-pill hover:bg-isa-pink-100 transition-colors text-left"
         >
           {faq.question}
         </button>

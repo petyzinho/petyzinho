@@ -36,7 +36,7 @@ const perks = [
 export default function TrabalheConoscoPage() {
   return (
     <>
-      <section className="relative bg-gradient-to-br from-isa-blue-800 to-isa-blue-600 text-white pt-32 pb-20">
+      <section className="relative bg-gradient-to-br from-isa-pink-700 to-isa-pink-600 text-white pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -44,19 +44,19 @@ export default function TrabalheConoscoPage() {
               initial="hidden"
               animate="visible"
             >
-              <p className="text-isa-blue-200 font-semibold text-sm uppercase tracking-wider mb-3">
+              <p className="text-isa-pink-200 font-semibold text-sm uppercase tracking-wider mb-3">
                 Trabalhe Conosco
               </p>
               <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-6 leading-tight">
                 Seja parte da maior plataforma de home care do Brasil
               </h1>
-              <p className="text-isa-blue-100 text-lg mb-8">
+              <p className="text-isa-pink-100 text-lg mb-8">
                 Profissionais de saúde autônomos que trabalham com a ISA têm
                 mais liberdade, mais renda e mais impacto na vida das pessoas.
               </p>
               <ul className="space-y-2 mb-8">
                 {perks.map((p) => (
-                  <li key={p} className="flex items-center gap-2.5 text-isa-blue-100">
+                  <li key={p} className="flex items-center gap-2.5 text-isa-pink-100">
                     <CheckCircle2 className="w-4 h-4 text-isa-green-400 flex-shrink-0" />
                     {p}
                   </li>
@@ -69,7 +69,7 @@ export default function TrabalheConoscoPage() {
                   variant="secondary"
                   size="lg"
                   rightIcon={<ArrowRight className="w-5 h-5" />}
-                  className="bg-white text-isa-blue-700 hover:bg-isa-gray-100"
+                  className="bg-white text-isa-pink-700 hover:bg-isa-gray-100"
                 >
                   Cadastrar pelo site
                 </Button>
@@ -91,7 +91,7 @@ export default function TrabalheConoscoPage() {
                       key={role.label}
                       className="flex items-center gap-2.5 p-3 bg-isa-gray-50 rounded-button"
                     >
-                      <span className="text-isa-blue-500">{role.icon}</span>
+                      <span className="text-isa-pink-500">{role.icon}</span>
                       <span className="text-sm font-medium text-isa-gray-700">
                         {role.label}
                       </span>
@@ -128,7 +128,7 @@ export default function TrabalheConoscoPage() {
             ].map((s) => (
               <motion.div key={s.label} variants={fadeUpVariant}>
                 <Card padding="md">
-                  <p className="font-display font-extrabold text-3xl text-isa-blue-600 mb-1">
+                  <p className="font-display font-extrabold text-3xl text-isa-pink-600 mb-1">
                     {s.value}
                   </p>
                   <p className="text-sm text-isa-gray-500">{s.label}</p>

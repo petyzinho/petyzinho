@@ -16,7 +16,7 @@ const values = [
       "Colocamos as pessoas no centro de tudo. Cada atendimento é uma oportunidade de transformar vidas.",
   },
   {
-    icon: <Shield className="w-6 h-6 text-isa-blue-500" />,
+    icon: <Shield className="w-6 h-6 text-isa-pink-500" />,
     title: "Segurança",
     description:
       "Validação rigorosa, dados protegidos e processos seguros para profissionais e pacientes.",
@@ -39,10 +39,10 @@ export default function SobrePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-isa-blue-900 to-isa-blue-700 text-white pt-32 pb-20">
+      <section className="bg-gradient-to-br from-isa-dark to-isa-pink-700 text-white pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-isa-blue-300 font-semibold text-sm uppercase tracking-wider mb-3">
+            <p className="text-isa-pink-300 font-semibold text-sm uppercase tracking-wider mb-3">
               Sobre a ISA Saúde
             </p>
             <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-6 leading-tight">
@@ -50,7 +50,7 @@ export default function SobrePage() {
               <br />
               Humano acima de tudo.
             </h1>
-            <p className="text-isa-blue-100 text-lg leading-relaxed">
+            <p className="text-isa-pink-100 text-lg leading-relaxed">
               A ISA Saúde nasceu da vontade de transformar o acesso ao cuidado
               domiciliar no Brasil — conectando profissionais de saúde
               qualificados a quem mais precisa, com tecnologia, segurança e
@@ -103,7 +103,7 @@ export default function SobrePage() {
                   { value: "10k+", label: "Atendimentos" },
                 ].map((s) => (
                   <div key={s.label} className="text-center">
-                    <p className="font-display font-extrabold text-3xl text-isa-blue-600">
+                    <p className="font-display font-extrabold text-3xl text-isa-pink-600">
                       {s.value}
                     </p>
                     <p className="text-sm text-isa-gray-500 mt-0.5">{s.label}</p>
@@ -152,12 +152,12 @@ export default function SobrePage() {
       <PartnersStrip />
 
       {/* CTA */}
-      <section className="py-20 bg-isa-blue-600 text-white text-center">
+      <section className="py-20 bg-isa-pink-600 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
             Faça parte dessa história
           </h2>
-          <p className="text-isa-blue-100 text-lg mb-8">
+          <p className="text-isa-pink-100 text-lg mb-8">
             Seja como profissional, paciente ou parceiro — a ISA Saúde tem um
             lugar para você.
           </p>
@@ -167,7 +167,7 @@ export default function SobrePage() {
               variant="primary"
               size="lg"
               rightIcon={<ArrowRight className="w-5 h-5" />}
-              className="bg-white text-isa-blue-700 hover:bg-isa-gray-100"
+              className="bg-white text-isa-pink-700 hover:bg-isa-gray-100"
             >
               Trabalhe Conosco
             </Button>

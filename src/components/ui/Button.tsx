@@ -19,12 +19,12 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-isa-blue-500 hover:bg-isa-blue-600 text-white shadow-sm hover:shadow-md",
+    "bg-isa-pink-500 hover:bg-isa-pink-600 text-white shadow-sm hover:shadow-md",
   secondary:
     "bg-isa-green-500 hover:bg-isa-green-600 text-white shadow-sm hover:shadow-md",
   ghost: "bg-transparent hover:bg-isa-gray-100 text-isa-gray-800",
   outline:
-    "bg-transparent border-2 border-isa-blue-500 text-isa-blue-500 hover:bg-isa-blue-50",
+    "bg-transparent border-2 border-isa-pink-500 text-isa-pink-500 hover:bg-isa-pink-50",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -51,7 +51,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseClasses = cn(
-      "inline-flex items-center justify-center font-semibold rounded-button transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-isa-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed",
+      "inline-flex items-center justify-center font-semibold rounded-button transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-isa-pink-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed",
       variantClasses[variant],
       sizeClasses[size],
       className

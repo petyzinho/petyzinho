@@ -22,14 +22,14 @@ export function ChatBotWidget() {
             className="w-80 sm:w-96 h-[520px] bg-white rounded-card shadow-card-hover flex flex-col overflow-hidden border border-isa-gray-200"
           >
             {/* Header */}
-            <div className="bg-isa-blue-600 px-4 py-3 flex items-center justify-between">
+            <div className="bg-isa-pink-600 px-4 py-3 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
                   <Heart className="w-4 h-4 text-white fill-current" />
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm">ISA Assistente</p>
-                  <p className="text-isa-blue-200 text-xs">Online agora</p>
+                  <p className="text-isa-pink-200 text-xs">Online agora</p>
                 </div>
               </div>
               <button
@@ -59,7 +59,7 @@ export function ChatBotWidget() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen((v) => !v)}
-        className="w-14 h-14 bg-isa-blue-500 hover:bg-isa-blue-600 rounded-full flex items-center justify-center shadow-lg transition-colors relative"
+        className="w-14 h-14 bg-isa-pink-500 hover:bg-isa-pink-600 rounded-full flex items-center justify-center shadow-lg transition-colors relative"
         aria-label={isOpen ? "Fechar chat" : "Abrir chat"}
       >
         <AnimatePresence mode="wait">

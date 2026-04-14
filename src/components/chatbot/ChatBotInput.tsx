@@ -37,7 +37,7 @@ export function ChatBotInput({ onSend, disabled }: Props) {
         <button
           onClick={handleSend}
           disabled={!value.trim() || disabled}
-          className="w-7 h-7 bg-isa-blue-500 hover:bg-isa-blue-600 disabled:opacity-40 rounded-full flex items-center justify-center transition-colors flex-shrink-0"
+          className="w-7 h-7 bg-isa-pink-500 hover:bg-isa-pink-600 disabled:opacity-40 rounded-full flex items-center justify-center transition-colors flex-shrink-0"
           aria-label="Enviar"
         >
           <Send className="w-3.5 h-3.5 text-white" />

@@ -1,47 +1,34 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Users, Star, Clock, Award } from "lucide-react";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
-import { Divider } from "@/components/ui/Divider";
-import { staggerContainer, fadeUpVariant } from "@/lib/animations";
 
 const stats = [
-  { end: 1200, suffix: "+", label: "Profissionais cadastrados" },
-  { end: 50, suffix: "+", label: "Cidades atendidas" },
-  { end: 10000, suffix: "+", label: "Atendimentos realizados" },
-  { end: 98, suffix: "%", label: "Índice de satisfação" },
+  { icon: Users, value: 500, suffix: " milhões+", label: "Atendimentos realizados" },
+  { icon: Star, value: 90, suffix: "+", label: "NPS — Índice de satisfação", prefix: "" },
+  { icon: Clock, value: 24, suffix: "h", label: "Tempo médio de agendamento", prefix: "< " },
+  { icon: Award, value: 10, suffix: "+ anos", label: "De experiência" },
 ];
 
 export function StatsSection() {
   return (
-    <>
-      <Divider color="#1E3A8A" />
-      <section className="bg-isa-blue-900 py-16 md:py-24 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
-          >
-            {stats.map((stat) => (
-              <motion.div key={stat.label} variants={fadeUpVariant}>
-                <div className="font-display font-extrabold text-4xl md:text-5xl text-white mb-2">
-                  <AnimatedCounter
-                    end={stat.end}
-                    suffix={stat.suffix}
-                  />
-                </div>
-                <p className="text-isa-blue-200 text-sm font-medium">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
+    <section className="py-16 bg-isa-gray-50 border-y border-isa-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          {stats.map((stat) => (
+            <div key={stat.label} className="flex flex-col items-center">
+              <div className="w-12 h-12 rounded-full bg-isa-pink-50 flex items-center justify-center mb-3">
+                <stat.icon className="w-6 h-6 text-isa-pink-500" />
+              </div>
+              <div className="text-3xl lg:text-4xl font-black text-isa-gray-800 mb-1">
+                {stat.prefix && <span>{stat.prefix}</span>}
+                <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+              </div>
+              <p className="text-sm text-isa-gray-500">{stat.label}</p>
+            </div>
+          ))}
         </div>
-      </section>
-      <Divider color="#1E3A8A" flip className="bg-white" />
-    </>
+      </div>
+    </section>
   );
 }

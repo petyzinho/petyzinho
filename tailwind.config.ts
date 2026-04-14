@@ -10,26 +10,27 @@ const config: Config = {
     extend: {
       colors: {
         isa: {
-          blue: {
-            50: "#EFF6FF",
-            100: "#DBEAFE",
-            200: "#BFDBFE",
-            300: "#93C5FD",
-            400: "#60A5FA",
-            500: "#3B82F6",
-            600: "#2563EB",
-            700: "#1D4ED8",
-            800: "#1E40AF",
-            900: "#1E3A8A",
+          pink: {
+            50: "#FFF0F8",
+            100: "#FFD6EE",
+            200: "#FFB3DE",
+            300: "#FF80C8",
+            400: "#F0439E",
+            500: "#E91E8C",
+            600: "#C4167A",
+            700: "#9C0F61",
           },
-          green: {
-            50: "#F0FDF4",
-            100: "#DCFCE7",
-            400: "#4ADE80",
-            500: "#22C55E",
-            600: "#16A34A",
+          teal: {
+            50: "#E0F7FA",
+            100: "#B2EBF2",
+            200: "#80DEEA",
+            300: "#4DD0E1",
+            400: "#26C6DA",
+            500: "#00BCD4",
+            600: "#00ACC1",
+            700: "#0097A7",
           },
-          teal: "#0D9488",
+          dark: "#0F2A3F",
           white: "#FFFFFF",
           gray: {
             50: "#F8FAFC",
@@ -61,14 +62,9 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(16px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        "pulse-soft": {
-          "0%, 100%": { transform: "scale(1)" },
-          "50%": { transform: "scale(1.05)" },
-        },
       },
       animation: {
         "fade-in-up": "fade-in-up 0.5s ease-out",
-        "pulse-soft": "pulse-soft 2s ease-in-out infinite",
       },
     },
   },

@@ -27,7 +27,7 @@ export function SectionHeading({
       )}
     >
       {pill && (
-        <span className="inline-block mb-3 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-isa-blue-600 bg-isa-blue-50 rounded-pill">
+        <span className="inline-block mb-3 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-isa-pink-600 bg-isa-pink-50 rounded-pill">
           {pill}
         </span>
       )}

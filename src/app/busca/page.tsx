@@ -31,7 +31,7 @@ function SearchContent() {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-isa-blue-900 to-isa-blue-700 text-white pt-32 pb-20">
+      <section className="bg-gradient-to-br from-isa-dark to-isa-pink-700 text-white pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="font-display font-extrabold text-4xl mb-6">Buscar no site</h1>
           <div className="flex items-center gap-3 bg-white rounded-button px-5 py-3 max-w-2xl shadow-lg">
@@ -72,13 +72,13 @@ function SearchContent() {
                   <Card hover padding="md" className="group">
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <h3 className="font-semibold text-isa-gray-900 group-hover:text-isa-blue-600 transition-colors mb-1">
+                        <h3 className="font-semibold text-isa-gray-900 group-hover:text-isa-pink-600 transition-colors mb-1">
                           {doc.title}
                         </h3>
                         <p className="text-sm text-isa-gray-600">{doc.description}</p>
-                        <p className="text-xs text-isa-blue-500 mt-1.5">{doc.url}</p>
+                        <p className="text-xs text-isa-pink-500 mt-1.5">{doc.url}</p>
                       </div>
-                      <ArrowRight className="w-5 h-5 text-isa-gray-400 flex-shrink-0 mt-1 group-hover:text-isa-blue-500 transition-colors" />
+                      <ArrowRight className="w-5 h-5 text-isa-gray-400 flex-shrink-0 mt-1 group-hover:text-isa-pink-500 transition-colors" />
                     </div>
                   </Card>
                 </Link>

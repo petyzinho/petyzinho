@@ -23,11 +23,11 @@ import {
 
 const services = [
   {
-    icon: <Stethoscope className="w-6 h-6 text-isa-blue-500" />,
+    icon: <Stethoscope className="w-6 h-6 text-isa-pink-500" />,
     title: "Enfermagem Domiciliar",
     description:
       "Curativos, aplicação de medicamentos, monitoramento de sinais vitais e cuidados pós-cirúrgicos.",
-    color: "bg-isa-blue-50",
+    color: "bg-isa-pink-50",
   },
   {
     icon: <Activity className="w-6 h-6 text-isa-teal" />,
@@ -223,7 +223,7 @@ export default function ParaPacientesPage() {
                 { value: "24/7", label: "Suporte disponível" },
               ].map((stat) => (
                 <Card key={stat.label} padding="md" className="text-center">
-                  <p className="font-display font-extrabold text-3xl text-isa-blue-600 mb-1">
+                  <p className="font-display font-extrabold text-3xl text-isa-pink-600 mb-1">
                     {stat.value}
                   </p>
                   <p className="text-xs text-isa-gray-500 font-medium">

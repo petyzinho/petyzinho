@@ -9,7 +9,7 @@ type TagProps = {
 };
 
 const variantClasses: Record<TagVariant, string> = {
-  blue: "bg-isa-blue-50 text-isa-blue-700",
+  blue: "bg-isa-pink-50 text-isa-pink-700",
   green: "bg-isa-green-50 text-isa-green-600",
   teal: "bg-teal-50 text-teal-700",
   gray: "bg-isa-gray-100 text-isa-gray-600",

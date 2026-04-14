@@ -1,134 +1,98 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Star, Quote } from "lucide-react";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    id: "1",
-    name: "Ana Paula Ferreira",
-    role: "Enfermeira",
-    audience: "professional" as const,
-    content:
-      "A ISA mudou minha vida profissional. Hoje tenho flexibilidade para organizar meus horários e ainda ganho mais do que quando trabalhava em clínica. O app é fácil de usar e o suporte é excelente.",
+    id: 1,
+    name: "Priscila",
+    role: "Paciente - São Paulo",
+    content: "Foi maravilhoso com profissionais amáveis e carinhoso. Muito satisfeito!",
     rating: 5,
   },
   {
-    id: "2",
-    name: "Carlos Eduardo Silva",
-    role: "Fisioterapeuta",
-    audience: "professional" as const,
-    content:
-      "Em menos de 48 horas fui validado e já recebi meu primeiro chamado. A plataforma é muito intuitiva e o pagamento é sempre na data certa. Recomendo para todos os colegas.",
+    id: 2,
+    name: "Maria",
+    role: "Paciente - Distrito Federal",
+    content: "Gostei do atendimento, rápido e seguro com profissional amável e seguro naquilo que faz. Obrigado!",
     rating: 5,
   },
   {
-    id: "3",
-    name: "Maria das Graças Oliveira",
-    role: "Familiar de paciente",
-    audience: "patient" as const,
-    content:
-      "Minha mãe precisava de cuidados pós-cirúrgicos e a ISA enviou uma enfermeira maravilhosa em menos de 2 horas. Profissional, gentil e muito competente. Gratidão!",
+    id: 3,
+    name: "Carlos Eduardo",
+    role: "Familiar - Belo Horizonte",
+    content: "Minha mãe precisava de cuidados e a ISA enviou uma enfermeira excelente. Profissional e muito cuidadosa.",
     rating: 5,
   },
   {
-    id: "4",
-    name: "Roberto Nascimento",
-    role: "Técnico em Enfermagem",
-    audience: "professional" as const,
-    content:
-      "Nunca imaginei que trabalhar de forma autônoma seria tão simples e seguro. A ISA cuida de toda a burocracia e eu me concentro no que realmente importa: cuidar dos pacientes.",
-    rating: 5,
-  },
-  {
-    id: "5",
-    name: "Fernanda Costa",
-    role: "Paciente, 67 anos",
-    audience: "patient" as const,
-    content:
-      "Recebi tratamento de fisioterapia em casa por 3 semanas após minha cirurgia. Não precisei me deslocar e os profissionais eram todos muito qualificados. Serviço impecável!",
+    id: 4,
+    name: "Ana Beatriz",
+    role: "Paciente - Salvador",
+    content: "Serviço impecável! Desde o agendamento até o atendimento, tudo foi muito organizado e eficiente.",
     rating: 5,
   },
 ];
 
 export function TestimonialsSection() {
-  const [current, setCurrent] = useState(0);
+  const [start, setStart] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  const prev = () => setStart((s) => (s - 1 + testimonials.length) % testimonials.length);
+  const next = () => setStart((s) => (s + 1) % testimonials.length);
 
-  const t = testimonials[current];
+  const visible = [
+    testimonials[start % testimonials.length],
+    testimonials[(start + 1) % testimonials.length],
+  ];
 
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          pill="Depoimentos"
-          title="O que dizem sobre a ISA"
-          subtitle="Histórias reais de profissionais e pacientes que transformaram sua relação com o cuidado em saúde."
-        />
+        <h2 className="text-3xl font-black text-isa-gray-800 text-center mb-12">
+          O que dizem nossos pacientes
+        </h2>
 
-        <div className="max-w-3xl mx-auto">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={t.id}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.4 }}
-              className="bg-isa-gray-50 rounded-card p-8 md:p-10 relative"
-            >
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-isa-blue-100" />
+        <div className="flex items-center gap-4">
+          <button
+            onClick={prev}
+            className="w-10 h-10 rounded-full border-2 border-isa-pink-200 flex items-center justify-center text-isa-pink-500 hover:bg-isa-pink-50 transition-colors flex-shrink-0"
+            aria-label="Anterior"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 text-yellow-400 fill-current"
-                  />
-                ))}
-              </div>
+          <div className="grid md:grid-cols-2 gap-6 flex-1">
+            {visible.map((t) => (
+              <div key={t.id} className="bg-white border border-isa-gray-200 rounded-2xl p-6 shadow-card">
+                {/* Pink quote mark */}
+                <div className="text-4xl font-black text-isa-pink-200 leading-none mb-3">"</div>
 
-              <p className="text-isa-gray-700 text-lg leading-relaxed mb-6 italic">
-                &ldquo;{t.content}&rdquo;
-              </p>
-
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-isa-blue-100 flex items-center justify-center text-isa-blue-600 font-bold text-lg">
-                  {t.name[0]}
+                {/* Stars */}
+                <div className="flex gap-1 mb-3">
+                  {Array.from({ length: t.rating }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-isa-pink-400 fill-current" />
+                  ))}
                 </div>
+
+                <p className="text-isa-gray-700 text-sm leading-relaxed mb-4">
+                  &ldquo; {t.content} &rdquo;
+                </p>
+
                 <div>
-                  <p className="font-semibold text-isa-gray-900">{t.name}</p>
-                  <p className="text-sm text-isa-gray-500">{t.role}</p>
+                  <p className="font-bold text-isa-gray-800 text-sm">{t.name}</p>
+                  <p className="text-xs text-isa-gray-500">{t.role}</p>
                 </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className={cn(
-                  "w-2.5 h-2.5 rounded-full transition-all duration-300",
-                  i === current
-                    ? "bg-isa-blue-500 w-6"
-                    : "bg-isa-gray-300 hover:bg-isa-gray-400"
-                )}
-                aria-label={`Depoimento ${i + 1}`}
-              />
             ))}
           </div>
+
+          <button
+            onClick={next}
+            className="w-10 h-10 rounded-full border-2 border-isa-pink-200 flex items-center justify-center text-isa-pink-500 hover:bg-isa-pink-50 transition-colors flex-shrink-0"
+            aria-label="Próximo"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </section>
