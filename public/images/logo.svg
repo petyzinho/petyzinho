@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 54" width="96" height="54" role="img" aria-label="ISA Saúde">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@900&amp;display=swap');
+    .isa { font-family: 'Nunito', sans-serif; font-weight: 900; }
+    .saude { font-family: 'Inter', system-ui, sans-serif; font-weight: 700; }
+  </style>
+  <text class="isa" x="0" y="38" fill="#00BCD4" font-size="44" letter-spacing="-1">isa</text>
+  <text class="saude" x="3" y="52" fill="#E91E8C" font-size="10" letter-spacing="2.6">SAÚDE</text>
+</svg>

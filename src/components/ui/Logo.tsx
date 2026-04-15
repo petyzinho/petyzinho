@@ -3,48 +3,49 @@ interface LogoProps {
   size?: "sm" | "md" | "lg";
 }
 
+const widths = { sm: 68, md: 86, lg: 110 };
+
 export function Logo({ variant = "color", size = "md" }: LogoProps) {
-  const isaColor    = variant === "white" ? "#FFFFFF" : "#00BCD4";
-  const saudeColor  = variant === "white" ? "rgba(255,255,255,0.80)" : "#E91E8C";
+  const isaColor   = variant === "white" ? "#FFFFFF" : "#00BCD4";
+  const saudeColor = variant === "white" ? "rgba(255,255,255,0.82)" : "#E91E8C";
+  const w = widths[size];
 
-  const sizes = {
-    sm: { isa: "1.55rem", saude: "0.46rem", spacing: "0.26em", gap: "2px" },
-    md: { isa: "2.05rem", saude: "0.56rem", spacing: "0.28em", gap: "3px" },
-    lg: { isa: "2.65rem", saude: "0.68rem", spacing: "0.30em", gap: "4px" },
-  };
-
-  const s = sizes[size];
-
+  // Inline SVG: fontes do DOM são aplicadas ao <text>, incluindo --font-nunito
   return (
-    <div className="flex flex-col leading-none select-none">
-      {/* "isa" — Nunito Black (weight 900) para traços arredondados e espessos */}
-      <span
-        style={{
-          color: isaColor,
-          fontSize: s.isa,
-          fontWeight: 900,
-          letterSpacing: "-0.02em",
-          lineHeight: 1,
-          fontFamily: "var(--font-nunito), 'Nunito', 'Varela Round', sans-serif",
-        }}
+    <svg
+      viewBox="0 0 96 54"
+      width={w}
+      height="auto"
+      aria-label="ISA Saúde"
+      role="img"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ display: "block", overflow: "visible" }}
+    >
+      {/* "isa" — Nunito Black 900 carregado via next/font */}
+      <text
+        x="0"
+        y="38"
+        fill={isaColor}
+        fontFamily="var(--font-nunito), 'Nunito', sans-serif"
+        fontWeight="900"
+        fontSize="44"
+        letterSpacing="-1"
       >
         isa
-      </span>
+      </text>
 
       {/* "SAÚDE" — caixa alta, espaçada, pink */}
-      <span
-        style={{
-          color: saudeColor,
-          fontSize: s.saude,
-          fontWeight: 700,
-          letterSpacing: s.spacing,
-          marginTop: s.gap,
-          fontFamily: "'Inter', 'Nunito', sans-serif",
-          textTransform: "uppercase",
-        }}
+      <text
+        x="3"
+        y="52"
+        fill={saudeColor}
+        fontFamily="'Inter', system-ui, sans-serif"
+        fontWeight="700"
+        fontSize="10"
+        letterSpacing="2.6"
       >
         SAÚDE
-      </span>
-    </div>
+      </text>
+    </svg>
   );
 }
