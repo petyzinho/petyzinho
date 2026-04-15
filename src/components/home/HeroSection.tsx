@@ -10,23 +10,27 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-10 items-center py-16 lg:py-24">
           {/* Left */}
           <div>
+            <span className="inline-block bg-isa-pink-50 text-isa-pink-600 text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
+              Saúde domiciliar
+            </span>
             <h1 className="text-5xl lg:text-6xl font-black text-isa-gray-800 leading-tight mb-6">
-              O futuro da pen drive é em casa
+              O futuro da saúde<br />
+              <span style={{ color: "#E91E8C" }}>é em casa</span>
             </h1>
             <p className="text-lg text-isa-gray-600 mb-8 leading-relaxed max-w-lg">
-              Cuidado domiciliar com tecnologia, segurança clínica e atendimento humanizado.
+              Cuidado domiciliar com tecnologia, segurança clínica e atendimento humanizado. Conectamos você aos melhores profissionais de saúde.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-10">
               <Link
                 href="/contato"
-                className="border-2 border-isa-teal-500 text-isa-teal-600 font-semibold px-7 py-3 rounded-pill hover:bg-isa-teal-50 transition-colors text-sm"
+                className="bg-isa-pink-500 hover:bg-isa-pink-600 text-white font-semibold px-7 py-3.5 rounded-pill transition-colors text-sm"
               >
-                Fale com Nosso Time
+                Entrar em Contato
               </Link>
               <Link
                 href="/para-pacientes"
-                className="border-2 border-isa-teal-500 text-isa-teal-600 font-semibold px-7 py-3 rounded-pill hover:bg-isa-teal-50 transition-colors text-sm"
+                className="border-2 border-isa-teal-500 text-isa-teal-600 font-semibold px-7 py-3.5 rounded-pill hover:bg-isa-teal-50 transition-colors text-sm"
               >
                 Conheça as Soluções
               </Link>
@@ -34,21 +38,21 @@ export function HeroSection() {
 
             <div className="flex flex-wrap gap-6">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-isa-teal-500" />
+                <CheckCircle2 className="w-5 h-5 text-isa-teal-500 flex-shrink-0" />
                 <div>
-                  <p className="font-bold text-isa-gray-800 text-sm">500 milhões+</p>
-                  <p className="text-xs text-isa-gray-500">Atendimentos/ano</p>
+                  <p className="font-bold text-isa-gray-800 text-sm">3,5 milhões+</p>
+                  <p className="text-xs text-isa-gray-500">Vidas atendidas</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <Star className="w-5 h-5 text-isa-teal-500" />
+                <Star className="w-5 h-5 text-isa-teal-500 flex-shrink-0" />
                 <div>
                   <p className="font-bold text-isa-gray-800 text-sm">NPS 90+</p>
                   <p className="text-xs text-isa-gray-500">Satisfação</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-isa-teal-500" />
+                <MapPin className="w-5 h-5 text-isa-teal-500 flex-shrink-0" />
                 <div>
                   <p className="font-bold text-isa-gray-800 text-sm">5 Estados</p>
                   <p className="text-xs text-isa-gray-500">SP, GO, DF, MG e +</p>
@@ -57,18 +61,14 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right */}
+          {/* Right – hero photo */}
           <div className="relative">
-            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-isa-teal-50 via-isa-teal-100 to-isa-teal-200 flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-40 h-40 mx-auto rounded-full bg-isa-teal-300/50 flex items-center justify-center mb-4">
-                  <svg className="w-24 h-24 text-isa-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
-                <p className="text-isa-teal-700 font-semibold text-lg">Profissional ISA</p>
-                <p className="text-isa-teal-600 text-sm mt-1">Atendimento domiciliar</p>
-              </div>
+            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=80"
+                alt="Profissional de saúde atendendo paciente em casa"
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Floating card */}
@@ -80,6 +80,12 @@ export function HeroSection() {
               <p className="text-xs text-isa-gray-500 leading-relaxed">
                 Todos os dias da semana, 24 horas por dia.
               </p>
+            </div>
+
+            {/* Floating badge top-left */}
+            <div className="absolute top-4 left-4 bg-white rounded-xl shadow-card px-3 py-2 flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-xs font-semibold text-isa-gray-700">Disponível agora</span>
             </div>
           </div>
         </div>
