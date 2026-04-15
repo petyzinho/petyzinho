@@ -4,12 +4,13 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import Link from "next/link";
 import { X, Phone } from "lucide-react";
+import { Logo } from "@/components/ui/Logo";
 
 const navLinks = [
   { label: "Serviços", href: "/para-pacientes" },
   { label: "Quem Somos", href: "/sobre" },
   { label: "Tecnologia", href: "/como-funciona" },
-  { label: "Seja um ISA", href: "/para-profissionais" },
+  { label: "Trabalhe Conosco", href: "/trabalhe-conosco" },
   { label: "Contato", href: "/contato" },
 ];
 
@@ -46,9 +47,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           >
             <Dialog.Panel className="w-screen max-w-sm bg-white shadow-xl flex flex-col">
               <div className="flex items-center justify-between px-6 py-4 border-b border-isa-gray-200">
-                <Link href="/" onClick={onClose} className="flex flex-col leading-none">
-                  <span className="text-2xl font-black tracking-tight" style={{ color: "#00BCD4" }}>ISA</span>
-                  <span className="text-xs font-bold tracking-widest -mt-1" style={{ color: "#E91E8C" }}>SAÚDE</span>
+                <Link href="/" onClick={onClose}>
+                  <Logo size="sm" />
                 </Link>
                 <button
                   onClick={onClose}

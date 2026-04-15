@@ -6,12 +6,13 @@ import { Phone, Search, Menu } from "lucide-react";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { useScrollHeader } from "@/hooks/useScrollHeader";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/ui/Logo";
 
 const navLinks = [
   { label: "Serviços", href: "/para-pacientes" },
   { label: "Quem Somos", href: "/sobre" },
   { label: "Tecnologia", href: "/como-funciona" },
-  { label: "Seja um ISA", href: "/para-profissionais" },
+  { label: "Trabalhe Conosco", href: "/trabalhe-conosco" },
 ];
 
 export function Header() {
@@ -30,9 +31,8 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex-shrink-0 flex flex-col leading-none">
-              <span className="text-2xl font-black tracking-tight" style={{ color: "#00BCD4" }}>ISA</span>
-              <span className="text-xs font-bold tracking-widest -mt-1" style={{ color: "#E91E8C" }}>SAÚDE</span>
+            <Link href="/" className="flex-shrink-0">
+              <Logo size="sm" />
             </Link>
 
             {/* Desktop Nav */}
