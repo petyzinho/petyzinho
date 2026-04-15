@@ -34,10 +34,33 @@ const ALL_SPECIALTIES = [
   "Fonoaudiologia", "Nutrição", "Cuidados", "Terapia Ocupacional",
 ];
 
-const ALL_LOCATIONS = [
-  "Todas", "São Paulo, SP", "Brasília, DF",
-  "Belo Horizonte, MG", "Salvador, BA", "Goiânia, GO",
+// Mapeamento de prefixo de CEP → cidade/estado
+const CEP_REGIONS: { prefixes: number[]; city: string }[] = [
+  { prefixes: [1, 2, 3, 4, 5, 6, 7, 8, 9],                   city: "São Paulo, SP"      },
+  { prefixes: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39],       city: "Belo Horizonte, MG" },
+  { prefixes: [40, 41, 42, 43, 44, 45, 46, 47, 48],           city: "Salvador, BA"       },
+  { prefixes: [70, 71, 72, 73],                                city: "Brasília, DF"       },
+  { prefixes: [74, 75, 76],                                    city: "Goiânia, GO"        },
 ];
+
+function formatCep(value: string): string {
+  const digits = value.replace(/\D/g, "").slice(0, 8);
+  if (digits.length <= 5) return digits;
+  return `${digits.slice(0, 5)}-${digits.slice(5)}`;
+}
+
+function cityFromCep(cep: string): string | null {
+  const digits = cep.replace(/\D/g, "");
+  if (digits.length < 2) return null;
+  const prefix2 = parseInt(digits.slice(0, 2), 10);
+  const prefix1 = parseInt(digits.slice(0, 1), 10);
+  for (const region of CEP_REGIONS) {
+    if (region.prefixes.includes(prefix2) || region.prefixes.includes(prefix1)) {
+      return region.city;
+    }
+  }
+  return null;
+}
 
 const earnings = [
   { role: "Enfermeiro(a)",          value: "R$ 8.000", detail: "Média para plantões domiciliares"  },
@@ -65,12 +88,15 @@ const navItems = [
 
 export default function PortalISAPage() {
   const [search,    setSearch]    = useState("");
-  const [location,  setLocation]  = useState("Todas");
+  const [cep,       setCep]       = useState("");
   const [specialty, setSpecialty] = useState("Todas");
 
+  const detectedCity = cityFromCep(cep);
+  const cepComplete  = cep.replace(/\D/g, "").length === 8;
+
   const filtered = opportunities.filter((o) => {
-    const matchSearch    = !search   || o.role.toLowerCase().includes(search.toLowerCase());
-    const matchLocation  = location  === "Todas" || o.location === location;
+    const matchSearch    = !search || o.role.toLowerCase().includes(search.toLowerCase());
+    const matchLocation  = !cepComplete || !detectedCity || o.location === detectedCity;
     const matchSpecialty = specialty === "Todas" || o.specialty === specialty;
     return matchSearch && matchLocation && matchSpecialty;
   });
@@ -250,18 +276,33 @@ export default function PortalISAPage() {
               />
             </div>
 
-            {/* Location */}
-            <div className="flex items-center gap-2 border border-isa-gray-200 rounded-xl px-4 py-2.5 sm:min-w-[190px]">
-              <MapPin className="w-4 h-4 text-isa-gray-400 flex-shrink-0" />
-              <select
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                className="flex-1 text-sm text-isa-gray-700 outline-none bg-transparent cursor-pointer"
-              >
-                {ALL_LOCATIONS.map((l) => (
-                  <option key={l} value={l}>{l === "Todas" ? "Todas as cidades" : l}</option>
-                ))}
-              </select>
+            {/* CEP */}
+            <div className="flex flex-col sm:min-w-[190px]">
+              <div className={`flex items-center gap-2 border rounded-xl px-4 py-2.5 transition-colors ${
+                cepComplete
+                  ? detectedCity ? "border-green-400 bg-green-50" : "border-red-300 bg-red-50"
+                  : "border-isa-gray-200"
+              }`}>
+                <MapPin className={`w-4 h-4 flex-shrink-0 ${
+                  cepComplete ? (detectedCity ? "text-green-500" : "text-red-400") : "text-isa-gray-400"
+                }`} />
+                <input
+                  type="text"
+                  placeholder="Digite seu CEP"
+                  value={cep}
+                  onChange={(e) => setCep(formatCep(e.target.value))}
+                  className="flex-1 text-sm text-isa-gray-800 placeholder-isa-gray-400 outline-none bg-transparent"
+                  maxLength={9}
+                />
+                {cep && (
+                  <button onClick={() => setCep("")} className="text-isa-gray-400 hover:text-isa-gray-600 text-xs">✕</button>
+                )}
+              </div>
+              {cepComplete && (
+                <p className={`text-xs mt-1 px-1 ${detectedCity ? "text-green-600" : "text-red-500"}`}>
+                  {detectedCity ? `📍 ${detectedCity}` : "CEP fora da área de cobertura"}
+                </p>
+              )}
             </div>
 
             {/* Specialty */}
