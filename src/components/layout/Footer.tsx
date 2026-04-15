@@ -67,7 +67,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="inline-block mb-5">
-              <Logo variant="color" size="md" />
+              <Logo variant="white" size="md" />
             </Link>
             <p className="text-isa-gray-400 text-sm leading-relaxed mb-2">
               O futuro da saúde domiciliar.
