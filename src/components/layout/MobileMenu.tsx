@@ -10,8 +10,7 @@ const navLinks = [
   { label: "Serviços", href: "/para-pacientes" },
   { label: "Quem Somos", href: "/sobre" },
   { label: "Tecnologia", href: "/como-funciona" },
-  { label: "Portal ISA", href: "/portal-isa" },
-  { label: "Trabalhe Conosco", href: "/trabalhe-conosco" },
+  { label: "Oportunidades", href: "/portal-isa" },
   { label: "Contato", href: "/contato" },
 ];
 
