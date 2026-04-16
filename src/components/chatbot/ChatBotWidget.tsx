@@ -24,13 +24,13 @@ export function ChatBotWidget() {
             {/* Header */}
             <div className="bg-isa-pink-600 px-4 py-3 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                {/* ISA character avatar */}
-                <div className="w-10 h-10 rounded-full overflow-hidden bg-isa-dark flex-shrink-0 border-2 border-white/30">
+                {/* ISA logo avatar */}
+                <div className="w-10 h-10 rounded-full overflow-hidden bg-white flex-shrink-0 border-2 border-white/30 flex items-center justify-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/images/isa-personagem.jpg"
+                    src="/images/isa-logo-chat.png"
                     alt="ISA Assistente"
-                    className="w-full h-full object-cover object-top scale-110"
+                    className="w-8 h-8 object-contain"
                   />
                 </div>
                 <div>
@@ -91,9 +91,9 @@ export function ChatBotWidget() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/isa-personagem.jpg"
+                src="/images/isa-logo-chat.png"
                 alt="ISA Assistente"
-                className="w-full h-full object-cover object-top scale-125 translate-y-1"
+                className="w-10 h-10 object-contain absolute inset-0 m-auto"
               />
             </motion.div>
           )}
