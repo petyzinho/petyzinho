@@ -48,7 +48,8 @@ export function WhereWeAreSection() {
                      0.8252  0.2110  0  0 -0.0362
                      0.4111  0.1515  0  0  0.4374
                      0       0       0  1  0
-                  " />
+                  " result="swapped" />
+                  <feColorMatrix in="swapped" type="saturate" values="2" />
                 </filter>
               </defs>
             </svg>

@@ -16,7 +16,7 @@ export function Logo({ variant = "color", size = "md" }: LogoProps) {
       alt="ISA Saúde"
       width={w}
       height={w}
-      style={{ objectFit: "contain", display: "block" }}
+      style={{ objectFit: "contain", display: "block", mixBlendMode: "multiply" }}
     />
   );
 }
