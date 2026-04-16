@@ -10,8 +10,11 @@ import {
   Smartphone,
   Users,
   Star,
-  DollarSign,
+  TrendingUp,
   Stethoscope,
+  CalendarCheck,
+  BadgeCheck,
+  HeartHandshake,
 } from "lucide-react";
 
 // ─── Mock data ───────────────────────────────────────────────────────────────
@@ -24,14 +27,13 @@ const opportunities = [
   { id: 5,  role: "Fonoaudiólogo(a)",                 specialty: "Fonoaudiologia",      location: "São Paulo, SP",       type: "Visita"  },
   { id: 6,  role: "Enfermeiro(a) UTI Domiciliar",     specialty: "Enfermagem",          location: "São Paulo, SP",       type: "Plantão" },
   { id: 7,  role: "Nutricionista",                    specialty: "Nutrição",            location: "Goiânia, GO",         type: "Visita"  },
-  { id: 8,  role: "Cuidador(a) de Idosos",            specialty: "Cuidados",            location: "Belo Horizonte, MG",  type: "Plantão" },
-  { id: 9,  role: "Enfermeiro(a) Pediatria",          specialty: "Enfermagem",          location: "São Paulo, SP",       type: "Plantão" },
-  { id: 10, role: "Terapeuta Ocupacional",            specialty: "Terapia Ocupacional", location: "Brasília, DF",        type: "Visita"  },
+  { id: 8,  role: "Enfermeiro(a) Pediatria",          specialty: "Enfermagem",          location: "São Paulo, SP",       type: "Plantão" },
+  { id: 9,  role: "Terapeuta Ocupacional",            specialty: "Terapia Ocupacional", location: "Brasília, DF",        type: "Visita"  },
 ];
 
 const ALL_SPECIALTIES = [
   "Todas", "Enfermagem", "Fisioterapia", "Medicina",
-  "Fonoaudiologia", "Nutrição", "Cuidados", "Terapia Ocupacional",
+  "Fonoaudiologia", "Nutrição", "Terapia Ocupacional",
 ];
 
 // Mapeamento de prefixo de CEP → cidade/estado
@@ -62,24 +64,83 @@ function cityFromCep(cep: string): string | null {
   return null;
 }
 
-const earnings = [
-  { role: "Enfermeiro(a)",          value: "R$ 8.000", detail: "Média para plantões domiciliares"  },
-  { role: "Fisioterapeuta",         value: "R$ 7.500", detail: "Média para visitas domiciliares"   },
-  { role: "Técnico de Enfermagem",  value: "R$ 5.000", detail: "Média para atendimentos regulares" },
-];
-
 const vantagens = [
-  { icon: Clock,      title: "Horários flexíveis",       desc: "Escolha quando e quanto trabalhar, sem horário fixo." },
-  { icon: DollarSign, title: "Ganhos acima da média",    desc: "Até 4x mais do que no modelo CLT tradicional."        },
-  { icon: Shield,     title: "Segurança garantida",      desc: "Suporte jurídico e seguro de responsabilidade incluídos." },
-  { icon: Smartphone, title: "Plataforma 100% digital",  desc: "Agenda, pagamentos e pacientes pelo app ISA."         },
-  { icon: Users,      title: "Comunidade ativa",         desc: "+10 mil profissionais cadastrados em todo o Brasil."  },
-  { icon: Star,       title: "Reconhecimento",           desc: "Avaliações e recompensas por desempenho excepcional." },
+  {
+    icon: Clock,
+    title: "Horários flexíveis",
+    desc: "Escolha quando e quanto trabalhar, sem horário fixo.",
+    bg: "bg-amber-50",
+    iconColor: "text-amber-500",
+    border: "hover:border-amber-200",
+  },
+  {
+    icon: TrendingUp,
+    title: "Ganhos acima da média",
+    desc: "Até 4x mais do que no modelo CLT tradicional.",
+    bg: "bg-green-50",
+    iconColor: "text-green-500",
+    border: "hover:border-green-200",
+  },
+  {
+    icon: Shield,
+    title: "Segurança garantida",
+    desc: "Suporte jurídico e seguro de responsabilidade incluídos.",
+    bg: "bg-blue-50",
+    iconColor: "text-blue-500",
+    border: "hover:border-blue-200",
+  },
+  {
+    icon: Smartphone,
+    title: "Plataforma 100% digital",
+    desc: "Agenda, pagamentos e pacientes pelo app ISA.",
+    bg: "bg-isa-pink-50",
+    iconColor: "text-isa-pink-500",
+    border: "hover:border-isa-pink-200",
+  },
+  {
+    icon: Users,
+    title: "Comunidade ativa",
+    desc: "+10 mil profissionais cadastrados em todo o Brasil.",
+    bg: "bg-purple-50",
+    iconColor: "text-purple-500",
+    border: "hover:border-purple-200",
+  },
+  {
+    icon: Star,
+    title: "Reconhecimento",
+    desc: "Avaliações e recompensas por desempenho excepcional.",
+    bg: "bg-orange-50",
+    iconColor: "text-orange-500",
+    border: "hover:border-orange-200",
+  },
+  {
+    icon: CalendarCheck,
+    title: "Agendamento inteligente",
+    desc: "Receba pacientes próximos a você sem burocracia.",
+    bg: "bg-teal-50",
+    iconColor: "text-teal-500",
+    border: "hover:border-teal-200",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Perfil verificado",
+    desc: "Credenciais validadas que geram mais confiança e agendamentos.",
+    bg: "bg-indigo-50",
+    iconColor: "text-indigo-500",
+    border: "hover:border-indigo-200",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Suporte dedicado",
+    desc: "Time ISA disponível para apoiar você em cada atendimento.",
+    bg: "bg-rose-50",
+    iconColor: "text-rose-500",
+    border: "hover:border-rose-200",
+  },
 ];
 
 const navItems = [
   { label: "Início",         href: "#inicio"        },
-  { label: "Ganhos",         href: "#ganhos"        },
   { label: "Vantagens",      href: "#vantagens"     },
   { label: "Oportunidades",  href: "#oportunidades" },
 ];
@@ -158,10 +219,10 @@ export default function PortalISAPage() {
                   Começar agora
                 </a>
                 <a
-                  href="#ganhos"
+                  href="#vantagens"
                   className="border-2 border-white/50 text-white font-semibold px-7 py-3.5 rounded-pill hover:bg-white/10 transition-colors"
                 >
-                  Ver ganhos
+                  Ver vantagens
                 </a>
               </div>
             </div>
@@ -186,44 +247,10 @@ export default function PortalISAPage() {
         </div>
       </section>
 
-      {/* ── Ganhos ────────────────────────────────────────────────────────── */}
-      <section id="ganhos" className="py-20 bg-isa-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-isa-gray-800 mb-3">
-              Quanto você pode ganhar
-            </h2>
-            <p className="text-isa-gray-500 max-w-xl mx-auto">
-              Profissionais ISA ganham em média 4x mais do que no modelo CLT.
-              Veja as estimativas por especialidade:
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {earnings.map((e) => (
-              <div
-                key={e.role}
-                className="bg-white rounded-2xl p-8 shadow-card border border-isa-gray-100 text-center"
-              >
-                <p className="text-sm font-semibold text-isa-gray-500 mb-3">{e.role}</p>
-                <p className="text-4xl font-black text-isa-gray-800 mb-1">
-                  {e.value}
-                  <span className="text-base font-medium text-isa-gray-400">/mês</span>
-                </p>
-                <p className="text-xs text-isa-gray-400 mt-2 mb-4">{e.detail}</p>
-                <span className="inline-block bg-isa-pink-50 text-isa-pink-600 text-xs font-semibold px-3 py-1 rounded-full">
-                  Estimativa média
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Vantagens ─────────────────────────────────────────────────────── */}
       <section id="vantagens" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-14">
             <h2 className="text-3xl font-black text-isa-gray-800 mb-3">
               Quem trabalha com a ISA tem uma série de vantagens
             </h2>
@@ -234,10 +261,10 @@ export default function PortalISAPage() {
             {vantagens.map((v) => (
               <div
                 key={v.title}
-                className="flex items-start gap-4 p-6 rounded-2xl border border-isa-gray-100 hover:border-isa-pink-200 hover:bg-isa-pink-50/30 transition-all"
+                className={`flex items-start gap-4 p-6 rounded-2xl border border-isa-gray-100 ${v.border} transition-all group`}
               >
-                <div className="w-11 h-11 rounded-xl bg-isa-pink-50 flex items-center justify-center flex-shrink-0">
-                  <v.icon className="w-5 h-5 text-isa-pink-500" />
+                <div className={`w-14 h-14 rounded-2xl ${v.bg} flex items-center justify-center flex-shrink-0`}>
+                  <v.icon className={`w-7 h-7 ${v.iconColor}`} />
                 </div>
                 <div>
                   <p className="font-bold text-isa-gray-800 mb-1">{v.title}</p>
