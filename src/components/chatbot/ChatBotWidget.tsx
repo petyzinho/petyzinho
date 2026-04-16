@@ -65,7 +65,7 @@ export function ChatBotWidget() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen((v) => !v)}
-        className="w-16 h-16 bg-isa-pink-500 hover:bg-isa-pink-600 rounded-full flex items-center justify-center shadow-lg transition-colors relative overflow-hidden border-2 border-white"
+        className="w-16 h-16 bg-white hover:bg-gray-50 rounded-full flex items-center justify-center shadow-lg transition-colors relative overflow-hidden border-2 border-isa-pink-300"
         aria-label={isOpen ? "Fechar chat" : "Abrir chat"}
       >
         <AnimatePresence mode="wait">
@@ -76,7 +76,7 @@ export function ChatBotWidget() {
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="absolute inset-0 flex items-center justify-center bg-isa-pink-600"
+              className="absolute inset-0 flex items-center justify-center bg-isa-pink-500"
             >
               <X className="w-6 h-6 text-white" />
             </motion.div>
