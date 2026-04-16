@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Heart } from "lucide-react";
+import { X } from "lucide-react";
 import { useChatBot } from "@/hooks/useChatBot";
 import { ChatBotMessages } from "./ChatBotMessages";
 import { ChatBotInput } from "./ChatBotInput";
@@ -24,8 +24,14 @@ export function ChatBotWidget() {
             {/* Header */}
             <div className="bg-isa-pink-600 px-4 py-3 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                  <Heart className="w-4 h-4 text-white fill-current" />
+                {/* ISA character avatar */}
+                <div className="w-10 h-10 rounded-full overflow-hidden bg-isa-dark flex-shrink-0 border-2 border-white/30">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/isa-personagem.jpg"
+                    alt="ISA Assistente"
+                    className="w-full h-full object-cover object-top scale-110"
+                  />
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm">ISA Assistente</p>
@@ -54,12 +60,12 @@ export function ChatBotWidget() {
         )}
       </AnimatePresence>
 
-      {/* Toggle Button */}
+      {/* Toggle Button — ISA character */}
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen((v) => !v)}
-        className="w-14 h-14 bg-isa-pink-500 hover:bg-isa-pink-600 rounded-full flex items-center justify-center shadow-lg transition-colors relative"
+        className="w-16 h-16 bg-isa-pink-500 hover:bg-isa-pink-600 rounded-full flex items-center justify-center shadow-lg transition-colors relative overflow-hidden border-2 border-white"
         aria-label={isOpen ? "Fechar chat" : "Abrir chat"}
       >
         <AnimatePresence mode="wait">
@@ -70,6 +76,7 @@ export function ChatBotWidget() {
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.2 }}
+              className="absolute inset-0 flex items-center justify-center bg-isa-pink-600"
             >
               <X className="w-6 h-6 text-white" />
             </motion.div>
@@ -80,15 +87,21 @@ export function ChatBotWidget() {
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: -90, opacity: 0 }}
               transition={{ duration: 0.2 }}
+              className="absolute inset-0"
             >
-              <MessageCircle className="w-6 h-6 text-white" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/isa-personagem.jpg"
+                alt="ISA Assistente"
+                className="w-full h-full object-cover object-top scale-125 translate-y-1"
+              />
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Unread dot on first load */}
+        {/* Unread dot */}
         {!isOpen && (
-          <span className="absolute top-0.5 right-0.5 w-3 h-3 bg-red-500 rounded-full border-2 border-white" />
+          <span className="absolute top-0.5 right-0.5 w-3 h-3 bg-red-500 rounded-full border-2 border-white z-10" />
         )}
       </motion.button>
     </div>
