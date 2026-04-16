@@ -38,13 +38,26 @@ export function WhereWeAreSection() {
             </p>
           </div>
 
-          {/* Brazil map image */}
+          {/* Brazil map image — filter swaps teal↔pink so attended states show in teal */}
           <div className="flex items-center justify-center">
+            <svg style={{ display: "none" }} xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="swap-pink-teal" colorInterpolationFilters="sRGB">
+                  <feColorMatrix type="matrix" values="
+                    -0.2178  1.155   0  0  0.0628
+                     0.8252  0.2110  0  0 -0.0362
+                     0.4111  0.1515  0  0  0.4374
+                     0       0       0  1  0
+                  " />
+                </filter>
+              </defs>
+            </svg>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/mapa-brasil.png"
               alt="Mapa do Brasil com estados atendidos pela ISA Saúde"
               className="w-full max-w-lg object-contain"
+              style={{ filter: "url(#swap-pink-teal)" }}
             />
           </div>
         </div>

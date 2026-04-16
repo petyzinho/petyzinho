@@ -205,7 +205,7 @@ export default function PortalISAPage() {
               </span>
               <h1 className="text-4xl lg:text-5xl font-black leading-tight mb-5">
                 Aumente seus ganhos{" "}
-                <span className="text-yellow-300">com a ISA</span>
+                <span className="text-isa-teal-300">com a ISA</span>
               </h1>
               <p className="text-pink-100 text-lg mb-8 leading-relaxed max-w-md">
                 Flexibilidade, segurança e oportunidades todos os dias.
