@@ -3,21 +3,20 @@ interface LogoProps {
   size?: "sm" | "md" | "lg";
 }
 
-const sizes = {
-  sm: { isa: "text-2xl", saude: "text-[9px] tracking-[0.22em]" },
-  md: { isa: "text-3xl", saude: "text-[10px] tracking-[0.24em]" },
-  lg: { isa: "text-4xl", saude: "text-xs tracking-[0.26em]" },
-};
+const widths = { sm: 72, md: 90, lg: 115 };
 
 export function Logo({ variant = "color", size = "md" }: LogoProps) {
-  const s = sizes[size];
-  const isaColor  = variant === "white" ? "text-white"         : "text-[#00BCD4]";
-  const saudeColor = variant === "white" ? "text-white/80"     : "text-[#E91E8C]";
+  const w = widths[size];
+  const src = "/images/logo.png";
 
   return (
-    <div className="flex flex-col leading-none select-none" aria-label="ISA Saúde">
-      <span className={`${s.isa} font-black ${isaColor} lowercase leading-none`}>isa</span>
-      <span className={`${s.saude} font-bold ${saudeColor} uppercase mt-0.5`}>saúde</span>
-    </div>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt="ISA Saúde"
+      width={w}
+      height={w}
+      style={{ objectFit: "contain", display: "block" }}
+    />
   );
 }
