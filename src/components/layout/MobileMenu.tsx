@@ -3,42 +3,21 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import Link from "next/link";
-import {
-  X, Phone, ChevronDown,
-  FlaskConical, Syringe, Home, Briefcase,
-  TrendingUp, Building2,
-} from "lucide-react";
+import { X, Phone, ChevronDown } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { cn } from "@/lib/utils";
 
-const portalGroups = [
-  {
-    label: "Serviços",
-    items: [
-      { icon: FlaskConical, color: "text-isa-pink-500", label: "Exames Laboratoriais", href: "/exames-laboratoriais" },
-      { icon: Syringe, color: "text-isa-teal-500", label: "Vacinas", href: "/servicos/vacinas" },
-      { icon: Home, color: "text-purple-500", label: "Atendimento Domiciliar", href: "/servicos/atendimento-domiciliar" },
-    ],
-  },
-  {
-    label: "Carreira",
-    items: [
-      { icon: Briefcase, color: "text-orange-500", label: "Trabalhe Conosco", href: "/profissionais" },
-      { icon: TrendingUp, color: "text-green-600", label: "Ganhos e Oportunidades", href: "/profissionais#ganhos" },
-    ],
-  },
-  {
-    label: "Empresas",
-    items: [
-      { icon: Building2, color: "text-blue-600", label: "Soluções para Empresas", href: "/empresas" },
-    ],
-  },
+const servicosLinks = [
+  { label: "Atendimento Domiciliar", href: "/servicos/atendimento-domiciliar" },
+  { label: "Exames Laboratoriais", href: "/servicos/exames-laboratoriais" },
+  { label: "Vacinas", href: "/servicos/vacinas" },
+  { label: "Testes Rápidos", href: "/servicos/testes-rapidos" },
 ];
 
 const navLinks = [
   { label: "Quem Somos", href: "/sobre" },
   { label: "Tecnologia", href: "/como-funciona" },
-  { label: "Blog", href: "/blog" },
+  { label: "Oportunidades", href: "/portal-isa" },
   { label: "Contato", href: "/contato" },
 ];
 
@@ -48,7 +27,7 @@ type MobileMenuProps = {
 };
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
-  const [portalOpen, setPortalOpen] = useState(false);
+  const [servicosOpen, setServicosOpen] = useState(false);
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
@@ -91,37 +70,29 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
               <nav className="flex-1 overflow-y-auto px-6 py-6">
                 <ul className="space-y-1">
-                  {/* Portal do ISA expandable */}
+                  {/* Serviços expandable */}
                   <li>
                     <button
-                      onClick={() => setPortalOpen(!portalOpen)}
-                      className="w-full flex items-center justify-between px-4 py-3 rounded-button text-isa-gray-800 font-semibold hover:bg-isa-pink-50 hover:text-isa-pink-500 transition-colors"
+                      onClick={() => setServicosOpen(!servicosOpen)}
+                      className="w-full flex items-center justify-between px-4 py-3 rounded-button text-isa-gray-800 font-medium hover:bg-isa-pink-50 hover:text-isa-pink-500 transition-colors"
                     >
-                      Portal do ISA
-                      <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", portalOpen && "rotate-180")} />
+                      Serviços
+                      <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", servicosOpen && "rotate-180")} />
                     </button>
-
-                    {portalOpen && (
-                      <div className="mt-1 ml-2 space-y-4 py-2">
-                        {portalGroups.map((group) => (
-                          <div key={group.label}>
-                            <p className="text-[10px] font-bold uppercase tracking-widest text-isa-gray-400 px-4 mb-1">
-                              {group.label}
-                            </p>
-                            {group.items.map((item) => (
-                              <Link
-                                key={item.href}
-                                href={item.href}
-                                onClick={onClose}
-                                className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-isa-gray-50 transition-colors"
-                              >
-                                <item.icon className={cn("w-4 h-4 flex-shrink-0", item.color)} />
-                                <span className="text-sm font-medium text-isa-gray-700">{item.label}</span>
-                              </Link>
-                            ))}
-                          </div>
+                    {servicosOpen && (
+                      <ul className="mt-1 ml-4 space-y-1 border-l-2 border-isa-pink-100 pl-3">
+                        {servicosLinks.map((link) => (
+                          <li key={link.href}>
+                            <Link
+                              href={link.href}
+                              onClick={onClose}
+                              className="block px-3 py-2 rounded-button text-sm text-isa-gray-600 hover:text-isa-pink-500 transition-colors"
+                            >
+                              {link.label}
+                            </Link>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     )}
                   </li>
 
