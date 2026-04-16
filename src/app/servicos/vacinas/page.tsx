@@ -35,31 +35,41 @@ export default function VacinasPage() {
   return (
     <main className="pt-16">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-isa-dark via-[#0a3a5c] to-isa-teal-600 text-white py-20">
+      <section className="bg-gradient-to-br from-isa-dark via-[#0a3a5c] to-isa-teal-600 text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <span className="inline-block bg-isa-teal-500/20 text-isa-teal-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-              Vacinas
-            </span>
-            <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
-              Vacinação <span className="text-isa-pink-400">em casa</span>
-            </h1>
-            <p className="text-lg text-white/80 mb-8 leading-relaxed">
-              Proteja sua família sem sair de casa. Nossa equipe vai até você com todo o equipamento necessário para uma vacinação segura e confortável.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/contato"
-                className="inline-block bg-isa-pink-500 hover:bg-isa-pink-600 text-white font-semibold px-8 py-3.5 rounded-full transition-colors"
-              >
-                Agendar Vacinação
-              </Link>
-              <Link
-                href="/contato"
-                className="inline-flex items-center gap-2 border border-white/40 hover:border-white text-white font-semibold px-8 py-3.5 rounded-full transition-colors"
-              >
-                <Phone className="w-4 h-4" /> 0800 720 1012
-              </Link>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block bg-isa-teal-500/20 text-isa-teal-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+                Vacinas
+              </span>
+              <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
+                Vacinação <span className="text-isa-pink-400">em casa</span>
+              </h1>
+              <p className="text-lg text-white/80 mb-8 leading-relaxed">
+                Proteja sua família sem sair de casa. Nossa equipe vai até você com todo o equipamento necessário para uma vacinação segura e confortável.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/contato"
+                  className="inline-block bg-isa-pink-500 hover:bg-isa-pink-600 text-white font-semibold px-8 py-3.5 rounded-full transition-colors"
+                >
+                  Agendar Vacinação
+                </Link>
+                <Link
+                  href="/contato"
+                  className="inline-flex items-center gap-2 border border-white/40 hover:border-white text-white font-semibold px-8 py-3.5 rounded-full transition-colors"
+                >
+                  <Phone className="w-4 h-4" /> 0800 720 1012
+                </Link>
+              </div>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/isa-foto-bebe-rosa.webp"
+                alt="Vacinação ISA Saúde - cuidado e carinho"
+                className="w-full max-w-md object-contain drop-shadow-2xl"
+              />
             </div>
           </div>
         </div>

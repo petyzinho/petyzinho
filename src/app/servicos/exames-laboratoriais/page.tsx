@@ -70,24 +70,34 @@ export default function ExamesLaboratoriaisPage() {
   return (
     <main className="pt-16">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-isa-dark via-[#0a3a5c] to-isa-teal-600 text-white py-20">
+      <section className="bg-gradient-to-br from-isa-dark via-[#0a3a5c] to-isa-teal-600 text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <span className="inline-block bg-isa-pink-500/20 text-isa-pink-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-              Exames Laboratoriais
-            </span>
-            <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
-              Seus exames <span className="text-isa-pink-400">em casa</span>
-            </h1>
-            <p className="text-lg text-white/80 mb-8 leading-relaxed">
-              Entregar uma solução fácil e segura aos pacientes, levando saúde, cuidado e bem-estar no conforto do seu lar.
-            </p>
-            <Link
-              href="/contato"
-              className="inline-block bg-isa-pink-500 hover:bg-isa-pink-600 text-white font-semibold px-8 py-3.5 rounded-full transition-colors"
-            >
-              Agende agora
-            </Link>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block bg-isa-pink-500/20 text-isa-pink-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+                Exames Laboratoriais
+              </span>
+              <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
+                Seus exames <span className="text-isa-pink-400">em casa</span>
+              </h1>
+              <p className="text-lg text-white/80 mb-8 leading-relaxed">
+                Entregar uma solução fácil e segura aos pacientes, levando saúde, cuidado e bem-estar no conforto do seu lar.
+              </p>
+              <Link
+                href="/contato"
+                className="inline-block bg-isa-pink-500 hover:bg-isa-pink-600 text-white font-semibold px-8 py-3.5 rounded-full transition-colors"
+              >
+                Agende agora
+              </Link>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/isa-foto-enfermeira-bebe.webp"
+                alt="Profissional de saúde ISA com paciente"
+                className="w-full max-w-md object-contain drop-shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -95,26 +105,36 @@ export default function ExamesLaboratoriaisPage() {
       {/* How it works */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-black text-isa-gray-800 mb-3">Como funciona</h2>
-            <p className="text-isa-gray-500 max-w-xl mx-auto">
-              Em poucos passos seus exames são coletados em casa com total segurança e conforto
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((step) => (
-              <div key={step.number} className="relative">
-                <div className="bg-isa-gray-50 rounded-2xl p-6 h-full border border-isa-gray-100 hover:border-isa-pink-200 hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-isa-pink-50 flex items-center justify-center mb-4">
-                    {step.icon}
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            {/* App mockup */}
+            <div className="flex justify-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/isa-app-mockup.webp"
+                alt="App ISA Saúde - Solicite sua coleta"
+                className="w-full max-w-xs md:max-w-sm object-contain"
+              />
+            </div>
+            {/* Steps */}
+            <div>
+              <h2 className="text-3xl md:text-4xl font-black text-isa-gray-800 mb-3">Como funciona</h2>
+              <p className="text-isa-gray-500 mb-8">
+                Em poucos passos seus exames são coletados em casa com total segurança e conforto
+              </p>
+              <div className="space-y-5">
+                {steps.map((step) => (
+                  <div key={step.number} className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-xl bg-isa-pink-50 flex items-center justify-center flex-shrink-0">
+                      <span className="text-lg font-black text-isa-pink-500">{step.number}</span>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-isa-gray-800 mb-1">{step.title}</h3>
+                      <p className="text-sm text-isa-gray-500 leading-relaxed">{step.description}</p>
+                    </div>
                   </div>
-                  <div className="text-4xl font-black text-isa-pink-100 mb-2">{step.number}</div>
-                  <h3 className="font-bold text-isa-gray-800 mb-2">{step.title}</h3>
-                  <p className="text-sm text-isa-gray-500 leading-relaxed">{step.description}</p>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
