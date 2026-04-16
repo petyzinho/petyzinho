@@ -1,13 +1,20 @@
 "use client";
 
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import Link from "next/link";
-import { X, Phone } from "lucide-react";
+import { X, Phone, ChevronDown } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
+import { cn } from "@/lib/utils";
+
+const servicosLinks = [
+  { label: "Atendimento Domiciliar", href: "/servicos/atendimento-domiciliar" },
+  { label: "Exames Laboratoriais", href: "/servicos/exames-laboratoriais" },
+  { label: "Vacinas", href: "/servicos/vacinas" },
+  { label: "Testes Rápidos", href: "/servicos/testes-rapidos" },
+];
 
 const navLinks = [
-  { label: "Serviços", href: "/para-pacientes" },
   { label: "Quem Somos", href: "/sobre" },
   { label: "Tecnologia", href: "/como-funciona" },
   { label: "Oportunidades", href: "/portal-isa" },
@@ -20,6 +27,8 @@ type MobileMenuProps = {
 };
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  const [servicosOpen, setServicosOpen] = useState(false);
+
   return (
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={onClose}>
@@ -61,6 +70,32 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
               <nav className="flex-1 overflow-y-auto px-6 py-6">
                 <ul className="space-y-1">
+                  {/* Serviços expandable */}
+                  <li>
+                    <button
+                      onClick={() => setServicosOpen(!servicosOpen)}
+                      className="w-full flex items-center justify-between px-4 py-3 rounded-button text-isa-gray-800 font-medium hover:bg-isa-pink-50 hover:text-isa-pink-500 transition-colors"
+                    >
+                      Serviços
+                      <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", servicosOpen && "rotate-180")} />
+                    </button>
+                    {servicosOpen && (
+                      <ul className="mt-1 ml-4 space-y-1 border-l-2 border-isa-pink-100 pl-3">
+                        {servicosLinks.map((link) => (
+                          <li key={link.href}>
+                            <Link
+                              href={link.href}
+                              onClick={onClose}
+                              className="block px-3 py-2 rounded-button text-sm text-isa-gray-600 hover:text-isa-pink-500 transition-colors"
+                            >
+                              {link.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+
                   {navLinks.map((link) => (
                     <li key={link.href}>
                       <Link
